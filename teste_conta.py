@@ -10,6 +10,7 @@ conta.numero = '2171-7'
 conta.cliente = 'Anderson'
 conta.saldo = 1500.0
 
+print type(ContaBancaria), type(conta)
 print 'Cliente:', conta.cliente
 print 'Agencia: %s e Conta: %s' % (conta.agencia, conta.numero)
 print 'Saldo:', str(conta.saldo)
