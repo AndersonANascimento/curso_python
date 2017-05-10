@@ -34,3 +34,14 @@ if gerente.efetuar_login(5678):
     print 'Gerente logado'
 else:
     print 'Falha na autenticação do Gerente'
+
+funcionario.salario = 1000.0
+seguranca.salario = 1000.0
+diretor.salario = 1000.0
+gerente.salario = 1000.0
+
+print '\n\t\t\tSalário e Bônus:'
+print 'funcionário:', funcionario.salario, funcionario.bonus
+print 'segurança  :', seguranca.salario, seguranca.bonus
+print 'gerente    :', gerente.salario, gerente.bonus
+print 'diretor    :', diretor.salario, diretor.bonus

@@ -1,4 +1,6 @@
 # -*- coding: UTF-8 -*-
+from abc import ABCMeta, abstractmethod, abstractproperty
+
 class ContaBancaria(object):
     __contador = 0
     def __init__(self, saldo=0.0):
@@ -53,6 +55,7 @@ class Movimentacao(object):
         self.valor = None
 
 class Funcionario(object):
+    __metaclass__ = ABCMeta
     __contador = 0
 
     def __init__(self, nome=None, email=None, salario=950.0):
@@ -68,25 +71,60 @@ class Funcionario(object):
     def matricula(self):
         return self.__matricula
 
+    @abstractproperty
+    def bonus(self):
+        pass
+
+class Usuario(Funcionario):
+    __metaclass__ = ABCMeta
+
+    def __init__(self, nome=None, email=None, salario=0.0, senha=None):
+        super(Usuario, self).__init__(self, nome, email, salario)
+        self.__senha = senha
+
+    @abstractmethod
+    def autenticar(self):
+        pass
+
+    @property
+    def senha(self):
+        return self.__senha
+
+    @senha.setter
+    def senha(self, valor):
+        self.__senha = valor
+
 class Seguranca(Funcionario):
     def __init__(self, dia_servico=None, salario=None):
         # Inicializa os atributos da classe Pai
-        Funcionario.__init__(self, salario=salario)
+        super(Seguranca, self).__init__(self, salario=salario)
         self.dia_servico = dia_servico
 
-class Diretor(Funcionario):
+    @property
+    def bonus(self):
+        return self.salario * 1.2
+
+class Diretor(Funcionario, Usuario):
     def __init__(self, senha=None, salario=None):
-        Funcionario.__init__(self, salario=salario)
+        super(Diretor, self).__init__(self, salario=salario)
         self.senha = senha
 
     def efetuar_login(self, senha):
         return self.senha == senha
 
-class Gerente(Funcionario):
+    @property
+    def bonus(self):
+        return self.salario * 1.5
+
+class Gerente(Funcionario, Usuario):
     def __init__(self, senha=None, horario_atendimento=None, salario=None):
-        Funcionario.__init__(self, salario=salario)
+        super(Gerente, self).__init__(self, salario=salario)
         self.senha = senha
         self.horario_atendimento = horario_atendimento
 
     def efetuar_login(self, senha):
         return self.senha == senha
+
+    @property
+    def bonus(self):
+        return self.salario * 1.2
