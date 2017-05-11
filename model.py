@@ -1,8 +1,10 @@
 # -*- coding: UTF-8 -*-
 from abc import ABCMeta, abstractmethod, abstractproperty
 
+
 class ContaBancaria(object):
     __contador = 0
+
     def __init__(self, saldo=0.0):
         self.agencia = None
         self.numero = None
@@ -54,6 +56,7 @@ class Movimentacao(object):
         self.descricao = None
         self.valor = None
 
+
 class Funcionario(object):
     __metaclass__ = ABCMeta
     __contador = 0
@@ -75,7 +78,8 @@ class Funcionario(object):
     def bonus(self):
         pass
 
-class Usuario(Funcionario):
+
+class Usuario(object):
     __metaclass__ = ABCMeta
 
     def __init__(self, nome=None, email=None, salario=0.0, senha=None):
@@ -83,7 +87,7 @@ class Usuario(Funcionario):
         self.__senha = senha
 
     @abstractmethod
-    def autenticar(self):
+    def efetuar_login(self):
         pass
 
     @property
@@ -94,6 +98,7 @@ class Usuario(Funcionario):
     def senha(self, valor):
         self.__senha = valor
 
+
 class Seguranca(Funcionario):
     def __init__(self, dia_servico=None, salario=None):
         # Inicializa os atributos da classe Pai
@@ -103,6 +108,7 @@ class Seguranca(Funcionario):
     @property
     def bonus(self):
         return self.salario * 1.2
+
 
 class Diretor(Funcionario, Usuario):
     def __init__(self, senha=None, salario=None):
@@ -115,6 +121,7 @@ class Diretor(Funcionario, Usuario):
     @property
     def bonus(self):
         return self.salario * 1.5
+
 
 class Gerente(Funcionario, Usuario):
     def __init__(self, senha=None, horario_atendimento=None, salario=None):
