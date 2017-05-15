@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 
-from model import ContaBancaria
+from model import SaldoInsuficienteError, ContaBancaria
 #  ou
 # import model.ContaBancaria # Não é boa prática
 
@@ -17,10 +17,12 @@ print 'Saldo:', str(conta.saldo)
 
 # Teste dos métodos depositar() e sacar()
 conta.depositar(500.0)
-if conta.sacar(2500.0):
-    print 'Saque realizado com sucesso :)'
-else:
-    print 'Saldo insuficiente :('
+try:
+    conta.sacar(2500.0)
+except ValueError as error:
+    print 'Erro: %s' % error
+except  SaldoInsuficienteError as error:
+    print 'Erro: %s' % error
 
 # Teste do método de tranferencia
 origem = ContaBancaria()

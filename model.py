@@ -2,6 +2,14 @@
 from abc import ABCMeta, abstractmethod, abstractproperty
 
 
+class SaldoInsuficienteError(Exception):
+    def __init__(self, mensagem):
+        self.mensagem = mensagem
+
+    def __str__(self):
+        return self.mensagem
+
+
 class ContaBancaria(object):
     __contador = 0
 
@@ -30,6 +38,11 @@ class ContaBancaria(object):
         self.__saldo += valor
 
     def sacar(self, valor):
+        if valor < 0:
+            raise ValueError('Valor negativo')
+        if self.__saldo < valor:
+            raise SaldoInsuficienteError('Saldo insuficiente!')
+
         if self.__saldo >= valor:
             self.__saldo -= valor
             return True

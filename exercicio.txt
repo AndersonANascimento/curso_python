@@ -1,0 +1,4 @@
+1- Crie a classe Gibi
+2- Crie o método estático para ler o arquivo e devolver uma lista de gibis
+3- Teste se o tamanho da lista é igual a 15
+4- Crie a classe filha Gibi de formato americano com o atributo tipo_capa
