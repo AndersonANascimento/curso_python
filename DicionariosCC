@@ -1,0 +1,15 @@
+{
+(65, 666): {
+	'limite': 1000.0, 
+	'movto': [{'data': '04/04/2017', 'descricao': 'Cesta de servi\xc3\xa7os', 'valor': 50.0}, 
+		  {'data': '01/05/2017', 'descricao': 'Pagto fatura', 'valor': 1530.53}], 
+	'saldo': 10000.0, 
+	'nome': 'Chico'
+	}, 
+(3715, 21717): {
+	'limite': 50000.0, 
+	'movto': [{'data': '01/04/2017', 'descricao': 'Deposito', 'valor': 100000.0}, 
+		  {'data': '04/05/2017', 'descricao': 'Saque', 'valor': 150000.0}], 
+	'saldo': 10000.0, 
+	'nome': 'Anderson'}
+}
