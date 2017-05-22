@@ -1,6 +1,7 @@
 #-*- encoding=UTF-8 -*-
 import pandas as pd
 
+<<<<<<< HEAD
 # medias = pd.DataFrame([['Maria', 10.0], ['Ana', 8.5], ['Fernanda', 9.5]],
 #                       columns=['Nome do Aluno', 'Media anual'])
 #
@@ -14,6 +15,21 @@ import pandas as pd
 # print medias['Media anual'].iloc[2]
 # print medias.iloc[2]['Nome do Aluno']
 # print medias.iloc[2]['Media anual']
+=======
+medias = pd.DataFrame([['Maria', 10.0], ['Ana', 8.5], ['Fernanda', 9.5]],
+                      columns=['Nome do Aluno', 'Media anual'])
+
+print medias.shape
+
+print medias
+
+print medias['Media anual']
+print medias['Media anual'].mean()
+print medias['Media anual'].median()
+print medias['Media anual'].iloc[2]
+print medias.iloc[2]['Nome do Aluno']
+print medias.iloc[2]['Media anual']
+>>>>>>> 48baed94f2f899c1516249f4f2e6c54864a5338d
 
 #import pandas as pd
 
@@ -32,6 +48,7 @@ estados = pd.DataFrame([
 ['SP', 'São Paulo', 'São Paulo'],['SE', 'Sergipe', 'Aracajú'],
 ['TO', 'Tocantins', 'Palmas']], columns=['Sigla', 'Estado', 'Capital'])
 
+<<<<<<< HEAD
 # print estados
 #
 # print estados.index
@@ -67,3 +84,29 @@ print '\n', estados.iloc[1:15:2]
 censo_amazonas = pd.read_excel('./datasets/censo_ibge_amazonas.xls')
 censo_amazonas.head()
 print censo_amazonas.iloc[:10]
+=======
+print estados
+
+print estados.index
+print estados['Estado']
+
+print estados.ix[3]
+print estados.iloc[3]
+
+print estados.ix[3:6]
+
+print estados.iloc[3:6]
+
+estados.index = pd.Index(range(10,37))
+print estados
+
+estados.index = estados['Sigla']
+print estados
+
+print estados.ix['AM']
+
+del estados['Sigla']
+print estados
+
+
+>>>>>>> 48baed94f2f899c1516249f4f2e6c54864a5338d
