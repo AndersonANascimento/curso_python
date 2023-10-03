@@ -18,7 +18,6 @@ def inverte(l=[]):
 l = [4, -2, 5, 0.9, 1, 5, 5]
 l2 = l[:]
 
-
 print(maiorElem(l))
 print(menorElem(l))
 print(somatorio(l))
